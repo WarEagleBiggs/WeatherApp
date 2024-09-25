@@ -4,17 +4,21 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
 public class PathGeneration : MonoBehaviour
 {
     public GameObject StartingPoint;
     public GameObject EndPoint;
+    public NavMeshAgent Plane;
 
     public List<Transform> Points;
 
     public bool doReset = true;
 
     public LineRenderer lr;
+    
+    
 
     void Update()
     {
@@ -26,6 +30,15 @@ public class PathGeneration : MonoBehaviour
             doReset = false;
             int random = Random.Range(0, 51);
             EndPoint.transform.position = Points[random].transform.position;
+            Plane.SetDestination(EndPoint.transform.position);
         }
     }
+
+    public void Run()
+    {
+        doReset = true;
+    }
+    
+    
+    
 }
