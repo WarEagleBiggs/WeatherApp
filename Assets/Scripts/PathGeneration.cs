@@ -13,6 +13,7 @@ public class PathGeneration : MonoBehaviour
     public NavMeshAgent Plane;
     public List<Transform> Points;
     public LineRenderer lr;
+    public bool isRunning;
     
     void Update()
     {
@@ -20,9 +21,11 @@ public class PathGeneration : MonoBehaviour
         lr.SetPosition(1, EndPoint.transform.position);
 
 
-        if (Plane.remainingDistance <= 0.1f)
+        if (Plane.remainingDistance == 0 && isRunning)
         {
             StartingPoint.transform.position = EndPoint.transform.position;
+            EndPoint.SetActive(false);
+            isRunning = false; 
         }
     }
 
@@ -31,6 +34,8 @@ public class PathGeneration : MonoBehaviour
         int random = Random.Range(0, 51);
         EndPoint.transform.position = Points[random].transform.position;
         Plane.SetDestination(EndPoint.transform.position);
+        isRunning = true;
+        EndPoint.SetActive(true);
     }
     
     
