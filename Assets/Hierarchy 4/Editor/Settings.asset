@@ -27,7 +27,7 @@ MonoBehaviour:
   professionalTheme:
     colorRowEven: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
     colorRowOdd: {r: 0.6320754, g: 0.38461193, b: 0.38461193, a: 1}
-    colorGrid: {r: 1, g: 1, b: 1, a: 1}
+    colorGrid: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
     colorTreeView: {r: 0.41960785, g: 0.41960785, b: 0.41960785, a: 1}
     colorLockIcon: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
     tagColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
@@ -44,10 +44,10 @@ MonoBehaviour:
     colorLockIcon: {r: 0.16540849, g: 0.4938957, b: 0.26885915, a: 1}
     tagColor: {r: 0.16726702, g: 0.49944508, b: 0.27188006, a: 1}
     layerColor: {r: 0.16726702, g: 0.49944508, b: 0.27188006, a: 1}
-    comSelBGColor: {r: 0.2369616, g: 0.11376249, b: 0.061928235, a: 0.5529412}
+    comSelBGColor: {r: 0.2369616, g: 0.7075472, b: 0.3851634, a: 0.5529412}
     selectionColor: {r: 0.040887494, g: 0.25804663, b: 0.20391004, a: 1}
     colorHeaderTitle: {r: 0.19514486, g: 0.58268595, b: 0.31719342, a: 1}
-    colorHeaderBackground: {r: 0.22578417, g: 0.26088864, b: 0.06058884, a: 1}
+    colorHeaderBackground: {r: 0.2369616, g: 0.27395338, b: 0.063588284, a: 1}
   activeHierarchy: 1
   displayCustomObjectIcon: 1
   displayTreeView: 1
