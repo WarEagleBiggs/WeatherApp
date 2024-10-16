@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using Pinwheel.Jupiter;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Master : MonoBehaviour
 {
     public Slider timeSlider;
 
     public JDayNightCycle NightCycleProf;
+
+    public TextMeshProUGUI timeTxt;
     
     // Start is called before the first frame update
     void Start()
@@ -20,5 +23,6 @@ public class Master : MonoBehaviour
     void Update()
     {
         NightCycleProf.Time = timeSlider.value * 24;
+        timeTxt.SetText(NightCycleProf.Time.ToString("0"));
     }
 }
