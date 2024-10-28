@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PathGeneration Path;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.tag == "Weather")
+        {
+            Debug.Log("Weather Hit");
+            Path.Plane.gameObject.SetActive(false);
+            Path.StateScreen.SetActive(true);
+            Path.LoseScreen.SetActive(true);
+        }
     }
 }

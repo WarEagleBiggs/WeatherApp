@@ -86,10 +86,10 @@ namespace Pinwheel.Poseidon
         {
             if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
             {
-                Plane plane = new Plane(Vector3.up, water.transform.position);
+                //Plane plane = new Plane(Vector3.up, water.transform.position);
                 Ray r = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
                 float distance = -1;
-                if (plane.Raycast(r, out distance))
+                /*if (plane.Raycast(r, out distance))
                 {
                     Vector3 hitWorldPos = r.origin + r.direction * distance;
                     Vector3 hitLocalPos = water.transform.InverseTransformPoint(hitWorldPos);
@@ -97,7 +97,7 @@ namespace Pinwheel.Poseidon
                     {
                         water.AreaMeshAnchors.Add(hitLocalPos);
                     }
-                }
+                }*/
             }
         }
 
@@ -106,7 +106,7 @@ namespace Pinwheel.Poseidon
             if (water.AreaMeshAnchors.Count < 3)
                 return;
 
-            Plane plane = new Plane(Vector3.up, water.transform.position);
+            /*Plane plane = new Plane(Vector3.up, water.transform.position);
             Ray r = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
             float distance = -1;
             if (plane.Raycast(r, out distance))
@@ -136,7 +136,7 @@ namespace Pinwheel.Poseidon
                     Handles.color = Color.red;
                     Handles.CubeHandleCap(0, intersections[i], Quaternion.identity, 1, EventType.Repaint);
                 }
-            }
+            }*/
         }
 
         private void DrawInstruction()

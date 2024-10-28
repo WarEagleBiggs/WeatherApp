@@ -49,7 +49,7 @@ namespace Pinwheel.Poseidon
 
         private void HandleAddRemoveTiles()
         {
-            Plane plane = new Plane(Vector3.up, water.transform.position);
+            /*Plane plane = new Plane(Vector3.up, water.transform.position);
             Ray r = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
             float distance = -1;
             if (plane.Raycast(r, out distance))
@@ -103,7 +103,7 @@ namespace Pinwheel.Poseidon
 
                 GUIContent mouseMessage = new GUIContent(s);
                 PEditorCommon.SceneViewMouseMessage(mouseMessage);
-            }
+            }*/
         }
 
         private void CatchHotControl()
