@@ -26,8 +26,11 @@ public class PathGeneration : MonoBehaviour
     public Slider curveSlider;  
 
     private List<Vector3> waypoints;  
-    private int currentWaypointIndex = 0;  
+    private int currentWaypointIndex = 0;
 
+    public GameObject StateScreen;
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
     private void Start()
     {
         // Initialize
@@ -124,6 +127,8 @@ public class PathGeneration : MonoBehaviour
         else
         {
             isRunning = false;
+            StateScreen.SetActive(true);
+            WinScreen.SetActive(true);
         }
     }
 }
