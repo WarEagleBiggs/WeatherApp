@@ -19,6 +19,14 @@ public class PathGeneration : MonoBehaviour
     public GameObject RunBtn;
     public GameObject ResetBtn;
 
+    private void Start()
+    {
+        //init info
+        int random = Random.Range(0, Points.Count);
+        EndPoint.transform.position = Points[random].transform.position;
+        EndPoint.SetActive(true);
+    }
+
     void Update()
     {
         lr.SetPosition(0, StartingPoint.transform.position);
@@ -34,17 +42,14 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
-        lr.enabled = true;
         RunBtn.SetActive(false);
         ResetBtn.SetActive(true);
         if (Points.Count == 0) return; 
 
-        int random = Random.Range(0, Points.Count);
-        EndPoint.transform.position = Points[random].transform.position;
-
+        
         Plane.SetDestination(EndPoint.transform.position);
         isRunning = true;
-        EndPoint.SetActive(true);
+        
     }
 
     public void ResetBtnClick()

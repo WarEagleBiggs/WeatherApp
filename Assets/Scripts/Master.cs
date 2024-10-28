@@ -23,6 +23,6 @@ public class Master : MonoBehaviour
     void Update()
     {
         NightCycleProf.Time = timeSlider.value * 24;
-        timeTxt.SetText(NightCycleProf.Time.ToString("0"));
+        timeTxt.SetText("Time: " + NightCycleProf.Time.ToString("0") + ":00 HRS");
     }
 }
