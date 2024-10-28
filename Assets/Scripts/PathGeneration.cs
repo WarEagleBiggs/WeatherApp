@@ -25,6 +25,15 @@ public class PathGeneration : MonoBehaviour
         int random = Random.Range(0, Points.Count);
         EndPoint.transform.position = Points[random].transform.position;
         EndPoint.SetActive(true);
+        
+        int random2 = Random.Range(0, Points.Count);
+        if (random2 == random)
+        {
+            random2 = Random.Range(0, Points.Count);
+        }
+        StartingPoint.transform.position = Points[random2].transform.position;
+        Plane.transform.position = StartingPoint.transform.position;
+        StartingPoint.SetActive(true);
     }
 
     void Update()
