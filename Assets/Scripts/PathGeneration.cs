@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
@@ -19,12 +20,17 @@ public class PathGeneration : MonoBehaviour
     public GameObject RunBtn;
     public GameObject ResetBtn;
 
+    public TextMeshProUGUI StartLocationTxt;
+    public TextMeshProUGUI EndLocationTxt;
+
     private void Start()
     {
         //init info
         int random = Random.Range(0, Points.Count);
         EndPoint.transform.position = Points[random].transform.position;
         EndPoint.SetActive(true);
+        
+        StartLocationTxt.SetText(Points[random].name);
         
         int random2 = Random.Range(0, Points.Count);
         if (random2 == random)
@@ -35,6 +41,8 @@ public class PathGeneration : MonoBehaviour
         Plane.transform.position = StartingPoint.transform.position;
         Plane.transform.LookAt(EndPoint.transform);
         StartingPoint.SetActive(true);
+        
+        EndLocationTxt.SetText(Points[random2].name);
     }
 
     void Update()
