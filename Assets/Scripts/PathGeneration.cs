@@ -23,14 +23,14 @@ public class PathGeneration : MonoBehaviour
     public TextMeshProUGUI StartLocationTxt;
     public TextMeshProUGUI EndLocationTxt;
 
-    public Slider curveSlider;  // Reference to the slider
+    public Slider curveSlider;  
 
-    private List<Vector3> waypoints;  // Stores the waypoints along the curve
-    private int currentWaypointIndex = 0;  // Track the current waypoint
+    private List<Vector3> waypoints;  
+    private int currentWaypointIndex = 0;  
 
     private void Start()
     {
-        // Initialize points and UI elements
+        // Initialize
         int random = Random.Range(0, Points.Count);
         EndPoint.transform.position = Points[random].transform.position;
         EndPoint.SetActive(true);
@@ -45,18 +45,18 @@ public class PathGeneration : MonoBehaviour
         StartingPoint.SetActive(true);
         EndLocationTxt.SetText(Points[random2].name);
 
-        lr.positionCount = 20;  // Set number of points for smooth curves
-        waypoints = new List<Vector3>();  // Initialize waypoint list
+        lr.positionCount = 20;  
+        waypoints = new List<Vector3>();  
     }
 
     private void Update()
     {
-        // Update the curve of the path dynamically
+       
         DrawCurvedLine();
 
         if (isRunning && Plane.remainingDistance < 0.1f && !Plane.pathPending)
         {
-            // Move to the next waypoint if close to the current one
+            
             MoveToNextWaypoint();
         }
     }
@@ -68,9 +68,9 @@ public class PathGeneration : MonoBehaviour
         if (Points.Count == 0) return;
 
         isRunning = true;
-        currentWaypointIndex = 0;  // Start at the first waypoint
-        UpdateWaypoints();  // Extract waypoints from the curve
-        Plane.SetDestination(waypoints[currentWaypointIndex]);  // Set first destination
+        currentWaypointIndex = 0;  
+        UpdateWaypoints(); 
+        Plane.SetDestination(waypoints[currentWaypointIndex]);  
     }
 
     public void ResetBtnClick()
@@ -83,17 +83,17 @@ public class PathGeneration : MonoBehaviour
         Vector3 startPos = StartingPoint.transform.position;
         Vector3 endPos = EndPoint.transform.position;
 
-        float curveAmount = curveSlider.value * 10;  // Get value from slider and scale it
+        float curveAmount = curveSlider.value * 10;  
         Vector3 midPoint = (startPos + endPos) / 2;
 
-        // Shift the midpoint along a perpendicular direction
+        
         Vector3 direction = (endPos - startPos).normalized;
         Vector3 perpendicular = new Vector3(-direction.z, direction.y, direction.x);
         midPoint += perpendicular * curveAmount;
 
         for (int i = 0; i < lr.positionCount; i++)
         {
-            float t = i / (float)(lr.positionCount - 1);  // Parameter t (0 to 1)
+            float t = i / (float)(lr.positionCount - 1); 
             Vector3 point = QuadraticBezier(startPos, midPoint, endPos, t);
             lr.SetPosition(i, point);
         }
@@ -106,9 +106,8 @@ public class PathGeneration : MonoBehaviour
 
     private void UpdateWaypoints()
     {
-        waypoints.Clear();  // Clear previous waypoints
+        waypoints.Clear(); 
 
-        // Add each LineRenderer position as a waypoint
         for (int i = 0; i < lr.positionCount; i++)
         {
             waypoints.Add(lr.GetPosition(i));
@@ -120,11 +119,10 @@ public class PathGeneration : MonoBehaviour
         if (currentWaypointIndex < waypoints.Count - 1)
         {
             currentWaypointIndex++;
-            Plane.SetDestination(waypoints[currentWaypointIndex]);  // Move to the next waypoint
+            Plane.SetDestination(waypoints[currentWaypointIndex]);  
         }
         else
         {
-            // Stop the movement once the final waypoint is reached
             isRunning = false;
         }
     }
