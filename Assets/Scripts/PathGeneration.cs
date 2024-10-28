@@ -126,7 +126,6 @@ public class PathGeneration : MonoBehaviour
         {
             // Stop the movement once the final waypoint is reached
             isRunning = false;
-            RunBtn.SetActive(true);
         }
     }
 }
