@@ -5,6 +5,7 @@ using System.Drawing;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PathGeneration : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class PathGeneration : MonoBehaviour
     public List<Transform> Points;
     public LineRenderer lr;
     public bool isRunning;
+
+    public GameObject RunBtn;
+    public GameObject ResetBtn;
 
     void Update()
     {
@@ -30,6 +34,9 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        lr.enabled = true;
+        RunBtn.SetActive(false);
+        ResetBtn.SetActive(true);
         if (Points.Count == 0) return; 
 
         int random = Random.Range(0, Points.Count);
@@ -38,6 +45,11 @@ public class PathGeneration : MonoBehaviour
         Plane.SetDestination(EndPoint.transform.position);
         isRunning = true;
         EndPoint.SetActive(true);
+    }
+
+    public void ResetBtnClick()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
 
