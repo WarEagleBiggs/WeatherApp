@@ -34,6 +34,7 @@ public class PathGeneration : MonoBehaviour
     public GameObject LoseScreen;
 
     public Plane planeScript;
+    public GameObject planeGhost;
     private void Start()
     {
         // Initialize
@@ -69,6 +70,7 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        planeGhost.SetActive(false);
         planeScript.isRunning = true;
         
         curveSlider.interactable = false;

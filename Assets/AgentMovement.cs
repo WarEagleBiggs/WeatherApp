@@ -11,6 +11,7 @@ public class AgentMovement : MonoBehaviour
 
     private Vector3 startPosition; // Start point on the NavMesh
     private Vector3 endPosition;   // End point on the NavMesh
+    private float journeyDistance; // Total distance between start and end points
     private bool isSimulating = false;
 
     void Start()
@@ -32,11 +33,10 @@ public class AgentMovement : MonoBehaviour
 
     void PickRandomPositions()
     {
-        // Random start and end points on the NavMesh
         startPosition = GetRandomNavMeshPoint();
         endPosition = GetRandomNavMeshPointFarFrom(startPosition);
-        
-        // Teleport agent to the starting point
+        journeyDistance = Vector3.Distance(startPosition, endPosition);
+
         agent.Warp(startPosition);
     }
 
@@ -57,7 +57,7 @@ public class AgentMovement : MonoBehaviour
         do
         {
             point = GetRandomNavMeshPoint();
-        } while (Vector3.Distance(start, point) < 30f);  // Ensure it's far away
+        } while (Vector3.Distance(start, point) < 30f);
 
         return point;
     }
@@ -66,21 +66,37 @@ public class AgentMovement : MonoBehaviour
     {
         if (isSimulating) return; // Avoid updating during the simulation
 
-        // Interpolate between start and end based on the slider value
         float t = Mathf.InverseLerp(sliderMin, sliderMax, value);
         Vector3 previewPosition = Vector3.Lerp(startPosition, endPosition, t);
 
-        // Warp agent to the preview position (for visualization only)
         agent.Warp(previewPosition);
     }
 
     void OnRunClicked()
     {
-        // Start the simulation and reset the slider to 10
         isSimulating = true;
         timeSlider.value = sliderMin;
-        
-        // Move the agent to the destination
         agent.SetDestination(endPosition);
+    }
+
+    void Update()
+    {
+        if (isSimulating && !agent.pathPending)
+        {
+            if (agent.remainingDistance > 0)
+            {
+                // Calculate the progress based on how far the agent has traveled
+                float distanceTraveled = journeyDistance - agent.remainingDistance;
+                float progress = distanceTraveled / journeyDistance;
+
+                // Update the slider value based on the agent’s progress
+                timeSlider.value = Mathf.Lerp(sliderMin, sliderMax, progress);
+            }
+            else
+            {
+                // Stop the simulation when the agent reaches the destination
+                isSimulating = false;
+            }
+        }
     }
 }
