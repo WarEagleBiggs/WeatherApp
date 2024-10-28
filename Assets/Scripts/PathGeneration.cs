@@ -23,7 +23,8 @@ public class PathGeneration : MonoBehaviour
     public TextMeshProUGUI StartLocationTxt;
     public TextMeshProUGUI EndLocationTxt;
 
-    public Slider curveSlider;  
+    public Slider curveSlider;
+    public Slider timeSlider;
 
     private List<Vector3> waypoints;  
     private int currentWaypointIndex = 0;
@@ -66,6 +67,9 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        curveSlider.interactable = false;
+        timeSlider.interactable = false;
+        
         RunBtn.SetActive(false);
         ResetBtn.SetActive(true);
         if (Points.Count == 0) return;
