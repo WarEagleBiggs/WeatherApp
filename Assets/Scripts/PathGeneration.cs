@@ -33,6 +33,7 @@ public class PathGeneration : MonoBehaviour
         }
         StartingPoint.transform.position = Points[random2].transform.position;
         Plane.transform.position = StartingPoint.transform.position;
+        Plane.transform.LookAt(EndPoint.transform);
         StartingPoint.SetActive(true);
     }
 
