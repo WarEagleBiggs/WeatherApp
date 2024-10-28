@@ -32,6 +32,8 @@ public class PathGeneration : MonoBehaviour
     public GameObject StateScreen;
     public GameObject WinScreen;
     public GameObject LoseScreen;
+
+    public Plane planeScript;
     private void Start()
     {
         // Initialize
@@ -67,11 +69,14 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        planeScript.isRunning = true;
+        
         curveSlider.interactable = false;
         timeSlider.interactable = false;
         
         RunBtn.SetActive(false);
         ResetBtn.SetActive(true);
+        
         if (Points.Count == 0) return;
 
         isRunning = true;
@@ -130,6 +135,7 @@ public class PathGeneration : MonoBehaviour
         }
         else
         {
+            planeScript.isRunning = false;
             isRunning = false;
             StateScreen.SetActive(true);
             WinScreen.SetActive(true);
