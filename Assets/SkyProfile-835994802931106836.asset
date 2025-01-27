@@ -73,13 +73,13 @@ Material:
     - _MoonLightIntensity: 0
     - _MoonSize: 0
     - _MoonSoftEdge: 0
-    - _OverheadCloudAltitude: 1615.18
+    - _OverheadCloudAltitude: 139.8
     - _OverheadCloudAnimationSpeed: 22.7
     - _OverheadCloudFlowDirectionX: 0.36
     - _OverheadCloudFlowDirectionZ: 0.66
     - _OverheadCloudRemapMax: 2
     - _OverheadCloudRemapMin: 0
-    - _OverheadCloudSize: 5.7
+    - _OverheadCloudSize: 40
     - _OverheadCloudStep: 2
     - _StarsDensity0: 0
     - _StarsDensity1: 0
@@ -97,7 +97,7 @@ Material:
     - _StarsTwinkle1: 0
     - _StarsTwinkle2: 0
     - _SunGlow: 0.45
-    - _SunLightIntensity: 1
+    - _SunLightIntensity: 1.29
     - _SunSize: 0.07
     - _SunSoftEdge: 0.5
     m_Colors:
@@ -149,14 +149,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _OverheadCloudAltitude: 1615.18
+    - _OverheadCloudAltitude: 139.8
     - _OverheadCloudAnimationSpeed: 22.7
     - _OverheadCloudFlowDirectionX: 0.36
     - _OverheadCloudFlowDirectionZ: 0.66
     - _OverheadCloudRemapMax: 2
     - _OverheadCloudRemapMin: 0
     - _OverheadCloudShadowClipMask: 0
-    - _OverheadCloudSize: 5.7
+    - _OverheadCloudSize: 40
     - _OverheadCloudStep: 2
     m_Colors:
     - _OverheadCloudColor: {r: 1, g: 1, b: 1, a: 0.5647059}
@@ -213,7 +213,7 @@ MonoBehaviour:
   useBakedSun: 0
   sunCubemap: {fileID: 0}
   sunLightColor: {r: 1, g: 0.9929226, b: 0.9009434, a: 1}
-  sunLightIntensity: 1
+  sunLightIntensity: 1.29
   enableMoon: 0
   moonTexture: {fileID: 0}
   moonColor: {r: 0, g: 0, b: 0, a: 0}
@@ -234,8 +234,8 @@ MonoBehaviour:
   horizonCloudAnimationSpeed: 50
   enableOverheadCloud: 1
   overheadCloudColor: {r: 1, g: 1, b: 1, a: 0.5647059}
-  overheadCloudAltitude: 1615.18
-  overheadCloudSize: 5.7
+  overheadCloudAltitude: 139.8
+  overheadCloudSize: 40
   overheadCloudStep: 2
   overheadCloudAnimationSpeed: 22.7
   overheadCloudFlowDirectionX: 0.36
