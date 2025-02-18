@@ -11,7 +11,7 @@ public class PreviewPlaneMovement : MonoBehaviour
 
     private void Start()
     {
-        UpdateWaypoints();
+        //UpdateWaypoints();
         SetGhostPlaneToStartPosition();
         timeSlider.onValueChanged.AddListener(UpdateGhostPlanePosition);
     }
@@ -28,10 +28,15 @@ public class PreviewPlaneMovement : MonoBehaviour
             waypoints.Add(lr.GetPosition(i));
     }
 
+    public GameObject nullPos;
     private void SetGhostPlaneToStartPosition()
     {
         if (waypoints.Count > 0)
-            ghostPlane.position = waypoints[0];
+        {
+            ghostPlane.transform.localPosition = nullPos.transform.localPosition;
+            //ghostPlane.position = waypoints[0];
+        }
+
     }
 
     private void UpdateGhostPlanePosition(float sliderValue)
