@@ -46,6 +46,10 @@ public class WeatherSpawner : MonoBehaviour
             float randomYRotation = Random.Range(0f, 360f);
             Quaternion randomRotation = Quaternion.Euler(0f, randomYRotation, 0f);
             clouds[i] = Instantiate(cloudPrefab, spawnPosition, randomRotation);
+            
+            //random size
+            float ranScale = Random.Range(1f, 13f);
+            clouds[i].transform.localScale = new Vector3(ranScale, ranScale, ranScale);
             cloudStartPositions[i] = new Vector3(Random.Range(spawnXMin, spawnXMax), spawnY, spawnZ);
         }
     }
