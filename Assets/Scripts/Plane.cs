@@ -10,21 +10,13 @@ public class Plane : MonoBehaviour
     public Master MasterScript;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Weather" && isRunning)
+        if (other.CompareTag("Weather") && isRunning)
         {
-            Debug.Log("Weather Hit");
             MasterScript.PlaneHearts--;
-
             if (MasterScript.PlaneHearts == 2)
-            {
                 MasterScript.Heart1.SetActive(false);
-            }
-            
             if (MasterScript.PlaneHearts == 1)
-            {
                 MasterScript.Heart2.SetActive(false);
-            }
-
             if (MasterScript.PlaneHearts == 0)
             {
                 MasterScript.Heart3.SetActive(false);
