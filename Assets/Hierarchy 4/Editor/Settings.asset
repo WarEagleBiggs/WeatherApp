@@ -26,7 +26,7 @@ MonoBehaviour:
     colorHeaderBackground: {r: 0.9098039, g: 0.9098039, b: 0.9098039, a: 1}
   professionalTheme:
     colorRowEven: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
-    colorRowOdd: {r: 0.6320754, g: 0.38461193, b: 0.38461193, a: 1}
+    colorRowOdd: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
     colorGrid: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
     colorTreeView: {r: 0.41960785, g: 0.41960785, b: 0.41960785, a: 1}
     colorLockIcon: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
