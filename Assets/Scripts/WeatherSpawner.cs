@@ -1,3 +1,4 @@
+// WeatherSpawner.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,13 +24,14 @@ public class WeatherSpawner : MonoBehaviour
     private float timeProgress = 0f;
     private float timeAtStart = 0f;
     public PathGeneration PathGenerationScript;
+    public float startTime = 7f;
 
     private void Start()
     {
         if (cloudTypes == null || cloudTypes.Count == 0 || timeSlider == null || playButton == null)
             return;
         SpawnClouds();
-        UpdateCloudPositions(timeSlider.value);
+        UpdateCloudPositions(startTime);
         timeSlider.onValueChanged.AddListener(OnSliderValueChanged);
         playButton.onClick.AddListener(OnPlayButtonPressed);
         InitializeSlider();
@@ -62,7 +64,7 @@ public class WeatherSpawner : MonoBehaviour
 
     private void UpdateCloudPositions(float sliderValue)
     {
-        float timeProgress = sliderValue / timeSlider.maxValue;
+        float timeProgress = (sliderValue - timeSlider.minValue) / (timeSlider.maxValue - timeSlider.minValue);
         float groupXMovement = Mathf.Lerp(spawnXMin, spawnXMax, timeProgress);
         for (int i = 0; i < cloudCount; i++)
         {
@@ -96,9 +98,10 @@ public class WeatherSpawner : MonoBehaviour
         while (isPlaying)
         {
             float elapsedTime = (Time.time - timeAtStart) * cloudSpeedMultiplier;
-            timeProgress = Mathf.Clamp01(elapsedTime / (timeSlider.maxValue * simulationSpeed));
-            UpdateCloudPositions(timeProgress * timeSlider.maxValue);
-            timeSlider.value = timeProgress * timeSlider.maxValue;
+            timeProgress = Mathf.Clamp01(elapsedTime / ((timeSlider.maxValue - timeSlider.minValue) * simulationSpeed));
+            float newTime = timeSlider.minValue + timeProgress * (timeSlider.maxValue - timeSlider.minValue);
+            UpdateCloudPositions(newTime);
+            timeSlider.value = newTime;
             yield return null;
         }
     }
@@ -106,9 +109,12 @@ public class WeatherSpawner : MonoBehaviour
     private void InitializeSlider()
     {
         float flightDistance = Vector3.Distance(PathGenerationScript.StartingPoint.transform.position, PathGenerationScript.EndPoint.transform.position);
-        float travelTime = Mathf.Clamp(flightDistance / 10f, 4f, 24f);
-        timeSlider.minValue = 0f;
-        timeSlider.maxValue = travelTime;
-        timeSlider.value = 0f;
+        float travelTime = flightDistance / 10f;
+        float finalTime = startTime + travelTime;
+        if(finalTime > 23f)
+            finalTime = 23f;
+        timeSlider.minValue = startTime;
+        timeSlider.maxValue = finalTime;
+        timeSlider.value = startTime;
     }
 }

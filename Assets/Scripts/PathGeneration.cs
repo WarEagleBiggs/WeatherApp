@@ -1,3 +1,4 @@
+// PathGeneration.cs
 using System;
 using System.Collections.Generic;
 using Pinwheel.Jupiter;
@@ -32,11 +33,11 @@ public class PathGeneration : MonoBehaviour
     private const float MinDistance = 20f;
     private float planeSpeed = 2f;
     private float distance;
-    private float timeRequired;
     public JDayNightCycle NightCycleProf;
     public AudioSource StartSFX;
     public AudioSource winSFX;
     public AudioSource LandSfx;
+    public float startTime = 7f;
 
     private void Start()
     {
@@ -44,10 +45,13 @@ public class PathGeneration : MonoBehaviour
         lr.positionCount = 20;
         waypoints = new List<Vector3>();
         distance = Vector3.Distance(StartingPoint.transform.position, EndPoint.transform.position);
-        timeRequired = distance / planeSpeed;
-        timeSlider.maxValue = timeRequired;
-        timeSlider.minValue = 0f;
-        timeSlider.value = timeRequired;
+        float travelTime = distance / planeSpeed;
+        float finalTime = startTime + travelTime;
+        if(finalTime > 23f)
+            finalTime = 23f;
+        timeSlider.minValue = startTime;
+        timeSlider.maxValue = finalTime;
+        timeSlider.value = startTime;
         timeSlider.onValueChanged.AddListener(OnTimeSliderValueChanged);
     }
 
