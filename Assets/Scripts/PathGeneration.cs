@@ -107,7 +107,7 @@ public class PathGeneration : MonoBehaviour
     {
         Vector3 startPos = StartingPoint.transform.position;
         Vector3 endPos = EndPoint.transform.position;
-        float curveAmount = curveSlider.value * 10;
+        float curveAmount = curveSlider.value * 20;
         Vector3 midPoint = (startPos + endPos) / 2;
         Vector3 direction = (endPos - startPos).normalized;
         Vector3 perpendicular = new Vector3(-direction.z, direction.y, direction.x);
