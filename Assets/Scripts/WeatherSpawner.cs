@@ -1,11 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class WeatherSpawner : MonoBehaviour
 {
-    public GameObject cloudPrefab;
+    public List<GameObject> cloudTypes;
     public float spawnXMin = -55f;
     public float spawnXMax = 55f;
     public float spawnY = 0f;
@@ -25,7 +26,7 @@ public class WeatherSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (cloudPrefab == null || timeSlider == null || playButton == null)
+        if (cloudTypes == null || cloudTypes.Count == 0 || timeSlider == null || playButton == null)
             return;
         SpawnClouds();
         UpdateCloudPositions(timeSlider.value);
@@ -40,16 +41,16 @@ public class WeatherSpawner : MonoBehaviour
         cloudStartPositions = new Vector3[cloudCount];
         for (int i = 0; i < cloudCount; i++)
         {
+            int index = Random.Range(0, cloudTypes.Count);
+            GameObject selectedCloud = cloudTypes[index];
             float spawnZ = Random.Range(spawnZRange.x, spawnZRange.y);
             float spawnX = Random.Range(spawnXMin, spawnXMax);
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
             float randomYRotation = Random.Range(0f, 360f);
             Quaternion randomRotation = Quaternion.Euler(0f, randomYRotation, 0f);
-            clouds[i] = Instantiate(cloudPrefab, spawnPosition, randomRotation);
-            
-            //random size
-            float ranScale = Random.Range(1f, 13f);
-            clouds[i].transform.localScale = new Vector3(ranScale, ranScale, ranScale);
+            GameObject cloudInstance = Instantiate(selectedCloud, spawnPosition, randomRotation);
+            cloudInstance.SetActive(true);
+            clouds[i] = cloudInstance;
             cloudStartPositions[i] = new Vector3(Random.Range(spawnXMin, spawnXMax), spawnY, spawnZ);
         }
     }

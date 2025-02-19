@@ -97,7 +97,7 @@ Material:
     - _StarsTwinkle1: 0
     - _StarsTwinkle2: 0
     - _SunGlow: 0.45
-    - _SunLightIntensity: 1.29
+    - _SunLightIntensity: 1.2
     - _SunSize: 0.07
     - _SunSoftEdge: 0.5
     m_Colors:
@@ -213,7 +213,7 @@ MonoBehaviour:
   useBakedSun: 0
   sunCubemap: {fileID: 0}
   sunLightColor: {r: 1, g: 0.9929226, b: 0.9009434, a: 1}
-  sunLightIntensity: 1.29
+  sunLightIntensity: 1.2
   enableMoon: 0
   moonTexture: {fileID: 0}
   moonColor: {r: 0, g: 0, b: 0, a: 0}
