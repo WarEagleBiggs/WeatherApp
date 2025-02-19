@@ -45,7 +45,7 @@ public class PathGeneration : MonoBehaviour
         lr.positionCount = 20;
         waypoints = new List<Vector3>();
         distance = Vector3.Distance(StartingPoint.transform.position, EndPoint.transform.position);
-        float travelTime = distance / planeSpeed;
+        float travelTime = distance / planeSpeed * 1.75f; 
         float finalTime = startTime + travelTime;
         if(finalTime > 23f)
             finalTime = 23f;

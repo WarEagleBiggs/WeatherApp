@@ -109,7 +109,7 @@ public class WeatherSpawner : MonoBehaviour
     private void InitializeSlider()
     {
         float flightDistance = Vector3.Distance(PathGenerationScript.StartingPoint.transform.position, PathGenerationScript.EndPoint.transform.position);
-        float travelTime = flightDistance / 10f;
+        float travelTime = flightDistance / 10f * 1.75f; 
         float finalTime = startTime + travelTime;
         if(finalTime > 23f)
             finalTime = 23f;
