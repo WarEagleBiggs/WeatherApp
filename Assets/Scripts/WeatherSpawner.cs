@@ -20,7 +20,7 @@ public class WeatherSpawner : MonoBehaviour
     public float simulationSpeed = 5f;
     private GameObject[] clouds;
     private Vector3[] cloudStartPositions;
-    private bool isPlaying = false;
+    public bool isPlaying = false;
     private float timeProgress = 0f;
     private float timeAtStart = 0f;
     public PathGeneration PathGenerationScript;

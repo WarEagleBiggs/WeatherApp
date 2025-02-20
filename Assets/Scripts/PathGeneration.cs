@@ -132,6 +132,7 @@ public class PathGeneration : MonoBehaviour
             waypoints.Add(lr.GetPosition(i));
     }
 
+    public WeatherSpawner Weather;
     private void MoveToNextWaypoint()
     {
         if (currentWaypointIndex < waypoints.Count - 1)
@@ -141,6 +142,7 @@ public class PathGeneration : MonoBehaviour
         }
         else
         {
+            Weather.isPlaying = false;
             LandSfx.Play();
             winSFX.Play();
             planeScript.isRunning = false;
