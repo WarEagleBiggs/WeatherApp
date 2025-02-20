@@ -124,7 +124,7 @@ public class PathGeneration : MonoBehaviour
     {
         return (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c;
     }
-
+    
     private void UpdateWaypoints()
     {
         waypoints.Clear();
