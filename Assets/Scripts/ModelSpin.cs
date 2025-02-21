@@ -8,6 +8,6 @@ public class ModelSpin : MonoBehaviour
 
     void Update()
     {
-        this.transform.Rotate(new Vector3(0,0,1) * spinRate * Time.deltaTime);
+        this.transform.Rotate(new Vector3(0,0,-1) * spinRate * Time.deltaTime);
     }
 }
