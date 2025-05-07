@@ -17,6 +17,7 @@ public class Master : MonoBehaviour
     public GameObject Heart3;
     public PathGeneration PlaneMoveScript;
     public Plane PlaneScript;
+    public AudioSource Click;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class Master : MonoBehaviour
 
     public void Menu()
     {
+        Click.Play();
+
         SceneManager.LoadScene("Menu");
     }
 }

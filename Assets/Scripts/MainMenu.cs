@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public GameObject tutorial;
     public GameObject about;
     public GameObject initButtons;
+    public AudioSource Click;
 
     public Animator Aubie;
 
@@ -28,6 +29,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        Click.Play();
+
         difficultySelect.SetActive(true);
         tutorial.SetActive(false);
         about.SetActive(false);
@@ -36,6 +39,8 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
+        Click.Play();
+
         difficultySelect.SetActive(false);
         tutorial.SetActive(true);
         about.SetActive(false);
@@ -44,6 +49,8 @@ public class MainMenu : MonoBehaviour
 
     public void About()
     {
+        Click.Play();
+
         difficultySelect.SetActive(false);
         tutorial.SetActive(false);
         about.SetActive(true);
@@ -52,6 +59,8 @@ public class MainMenu : MonoBehaviour
 
     public void Back()
     {
+        Click.Play();
+
         //reset buttons
         difficultySelect.SetActive(false);
         tutorial.SetActive(false);
@@ -63,16 +72,22 @@ public class MainMenu : MonoBehaviour
     //buttons for diff select
     public void Diff_Easy()
     {
+        Click.Play();
+
         SceneManager.LoadScene("Game");
         Singleton.GetInstance.currMode = 0;
     }
     public void Diff_Normal()
     {
+        Click.Play();
+
         SceneManager.LoadScene("Game");
         Singleton.GetInstance.currMode = 1;
     }
     public void Diff_Hard()
     {
+        Click.Play();
+
         SceneManager.LoadScene("Game");
         Singleton.GetInstance.currMode = 2;
     }

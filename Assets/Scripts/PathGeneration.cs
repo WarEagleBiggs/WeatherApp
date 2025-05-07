@@ -38,6 +38,7 @@ public class PathGeneration : MonoBehaviour
     public AudioSource winSFX;
     public AudioSource LandSfx;
     public float startTime = 7f;
+    public AudioSource Click;
 
     public GameObject Cam1;
     public GameObject Cam2;
@@ -69,6 +70,7 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        Click.Play();
         Cam1.SetActive(false);
         Cam2.SetActive(true);
         StartSFX.Play();
@@ -88,6 +90,8 @@ public class PathGeneration : MonoBehaviour
 
     public void ResetBtnClick()
     {
+        Click.Play();
+
         SceneManager.LoadScene("Game");
     }
 
