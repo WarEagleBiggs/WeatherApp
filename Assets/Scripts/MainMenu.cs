@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations;
+using Random = UnityEngine.Random;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,12 +14,16 @@ public class MainMenu : MonoBehaviour
     public GameObject about;
     public GameObject initButtons;
 
+    public Animator Aubie;
+
     private void Start()
     {
         difficultySelect.SetActive(false);
         tutorial.SetActive(false);
         about.SetActive(false);
         initButtons.SetActive(true);
+
+        StartCoroutine(AubieAnim());
     }
 
     public void StartGame()
@@ -65,5 +72,24 @@ public class MainMenu : MonoBehaviour
     public void Diff_Hard()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public IEnumerator AubieAnim()
+    {
+        while (true)
+        {
+            int randTime = Random.Range(7, 15);
+            yield return new WaitForSeconds(randTime);
+            int rand = Random.Range(0, 2);
+            if (rand == 1)
+            {
+                Aubie.SetTrigger("Peek");
+            }
+            else
+            {
+                Aubie.SetTrigger("Show");
+            }
+        }
+        
     }
 }
