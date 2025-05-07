@@ -1,0 +1,12 @@
+# This is an Asset Catalog Definition file for Blender.
+#
+# Empty lines and lines starting with `#` will be ignored.
+# The first non-ignored line should be the version indicator.
+# Other lines are of the format "UUID:catalog/path/for/assets:simple catalog name"
+
+VERSION 1
+
+5af6f851-49b9-4f24-b407-1e9f7c0d19c4:Ultimate Lightning Pack v1.2:Ultimate Lightning Pack v1.2
+375b3cbb-b5ac-47e5-bb27-91d0022b8e18:Ultimate Lightning Pack v1.2/Extra:Ultimate Lightning Pack v1.2-Extra
+a4480c1c-3d60-4767-b876-a91b20a69d3c:Ultimate Lightning Pack v1.2/Free:Ultimate Lightning Pack v1.2-Free
+1a3c06c8-998b-4758-99c3-70a9e3642ade:Ultimate Lightning Pack v1.2/Materials:Ultimate Lightning Pack v1.2-Materials
