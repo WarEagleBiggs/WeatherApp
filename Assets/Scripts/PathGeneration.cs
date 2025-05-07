@@ -44,6 +44,7 @@ public class PathGeneration : MonoBehaviour
 
     private void Start()
     {
+
         InitializePoints();
         lr.positionCount = 20;
         waypoints = new List<Vector3>();

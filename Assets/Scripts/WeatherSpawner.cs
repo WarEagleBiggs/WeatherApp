@@ -7,6 +7,7 @@ using TMPro;
 
 public class WeatherSpawner : MonoBehaviour
 {
+    
     public List<GameObject> cloudTypes;
     public float spawnXMin = -55f;
     public float spawnXMax = 55f;
@@ -28,6 +29,21 @@ public class WeatherSpawner : MonoBehaviour
 
     private void Start()
     {
+
+        if (Singleton.GetInstance.currMode == 0)
+        {
+            //easy
+            cloudCount = 100;
+        } else if (Singleton.GetInstance.currMode == 1)
+        {
+            //normal
+            cloudCount = 200;
+        } else if (Singleton.GetInstance.currMode == 2)
+        {
+            //hard
+            cloudCount = 400;
+        }
+        
         if (cloudTypes == null || cloudTypes.Count == 0 || timeSlider == null || playButton == null)
             return;
         SpawnClouds();

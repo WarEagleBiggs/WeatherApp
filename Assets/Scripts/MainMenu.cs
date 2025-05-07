@@ -64,14 +64,17 @@ public class MainMenu : MonoBehaviour
     public void Diff_Easy()
     {
         SceneManager.LoadScene("Game");
+        Singleton.GetInstance.currMode = 0;
     }
     public void Diff_Normal()
     {
         SceneManager.LoadScene("Game");
+        Singleton.GetInstance.currMode = 1;
     }
     public void Diff_Hard()
     {
         SceneManager.LoadScene("Game");
+        Singleton.GetInstance.currMode = 2;
     }
 
     public IEnumerator AubieAnim()
