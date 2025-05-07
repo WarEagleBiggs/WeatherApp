@@ -4,6 +4,7 @@ using Pinwheel.Jupiter;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Master : MonoBehaviour
 {
@@ -27,5 +28,10 @@ public class Master : MonoBehaviour
     {
         NightCycleProf.Time = timeSlider.value;
         timeTxt.SetText("Time: " + timeSlider.value.ToString("0") + ":00 HRS");
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
