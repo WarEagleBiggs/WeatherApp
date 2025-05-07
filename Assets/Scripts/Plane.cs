@@ -8,10 +8,12 @@ public class Plane : MonoBehaviour
     public PathGeneration Path;
     public bool isRunning;
     public Master MasterScript;
+    public AudioSource Scratch;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weather") && isRunning)
         {
+            Scratch.Play();
             MasterScript.PlaneHearts--;
             if (MasterScript.PlaneHearts == 2)
                 MasterScript.Heart1.SetActive(false);
