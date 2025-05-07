@@ -42,6 +42,15 @@ public class MainMenu : MonoBehaviour
         about.SetActive(true);
         initButtons.SetActive(false);
     }
+
+    public void Back()
+    {
+        //reset buttons
+        difficultySelect.SetActive(false);
+        tutorial.SetActive(false);
+        about.SetActive(false);
+        initButtons.SetActive(true);
+    }
     
     
     //buttons for diff select
