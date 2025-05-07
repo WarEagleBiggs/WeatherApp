@@ -39,6 +39,9 @@ public class PathGeneration : MonoBehaviour
     public AudioSource LandSfx;
     public float startTime = 7f;
 
+    public GameObject Cam1;
+    public GameObject Cam2;
+
     private void Start()
     {
         InitializePoints();
@@ -65,6 +68,8 @@ public class PathGeneration : MonoBehaviour
 
     public void Run()
     {
+        Cam1.SetActive(false);
+        Cam2.SetActive(true);
         StartSFX.Play();
         planeGhost.SetActive(false);
         planeScript.isRunning = true;
